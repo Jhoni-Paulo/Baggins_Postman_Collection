@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "0aa0f03e-c05f-4c18-98c4-970a5a6f45b4",
+		"name": "Baggins_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Create Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Jhoni\",\n\t\"email\": \"teste\",\n\t\"senha\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Pessoa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jhoni_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Jhonatan\",\n\t\"email\": \"jhoni.up.2015@gmail.com\",\n\t\"senhaAntiga\":\"1234567\",\n\t\"senha\":\"789521\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baggins_url}}/pessoas",
+							"host": [
+								"{{baggins_url}}"
+							],
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pessoa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jhoni_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baggins_url}}/pessoas",
+							"host": [
+								"{{baggins_url}}"
+							],
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Sessoes",
+			"item": [
+				{
+					"name": "Criar Autenticacao",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"jhoni.up.2015@gmail.com\",\n\t\"senha\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baggins_url}}/sessao",
+							"host": [
+								"{{baggins_url}}"
+							],
+							"path": [
+								"sessao"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
