@@ -6,23 +6,23 @@
 	},
 	"item": [
 		{
-			"name": "Pessoa",
+			"name": "People",
 			"item": [
 				{
-					"name": "Create Pessoa",
+					"name": "Create Person",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\": \"Jhoni\",\n\t\"email\": \"teste\",\n\t\"senha\": \"12345678\"\n}",
+							"raw": "{\n\t\"name\": \"Jhoni\",\n\t\"email\": \"jhoni.up.2015@gmail.com\",\n\t\"password\": \"789521\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -30,21 +30,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/pessoas",
-							"protocol": "http",
+							"raw": "{{baggins_url}}/people",
 							"host": [
-								"localhost"
+								"{{baggins_url}}"
 							],
-							"port": "3333",
 							"path": [
-								"pessoas"
+								"people"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Atualizar Pessoa",
+					"name": "Update Person",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -67,7 +65,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\": \"Jhonatan\",\n\t\"email\": \"jhoni.up.2015@gmail.com\",\n\t\"senhaAntiga\":\"1234567\",\n\t\"senha\":\"789521\"\n}",
+							"raw": "{\n    \"nome\": \"Jhoni\",\n    \"email\": \"jhoni.up.2015@gmail.com\",\n    \"senhaAntiga\": \"789521\",\n    \"senha\": \"123456\",\n    \"confirmarSenha\": \"123456\",\n    \"avatarId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,19 +73,19 @@
 							}
 						},
 						"url": {
-							"raw": "{{baggins_url}}/pessoas",
+							"raw": "{{baggins_url}}/people",
 							"host": [
 								"{{baggins_url}}"
 							],
 							"path": [
-								"pessoas"
+								"people"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Deletar Pessoa",
+					"name": "Delete Person",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -109,12 +107,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baggins_url}}/pessoas",
+							"raw": "{{baggins_url}}/people",
 							"host": [
 								"{{baggins_url}}"
 							],
 							"path": [
-								"pessoas"
+								"people"
 							]
 						}
 					},
@@ -124,10 +122,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Sessoes",
+			"name": "Sessions",
 			"item": [
 				{
-					"name": "Criar Autenticacao",
+					"name": "Create Authentication",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -140,7 +138,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\" : \"jhoni.up.2015@gmail.com\",\n\t\"senha\" : \"12345678\"\n}",
+							"raw": "{\n\t\"email\" : \"jhoni.up.2015@gmail.com\",\n\t\"password\" : \"789521\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -148,12 +146,55 @@
 							}
 						},
 						"url": {
-							"raw": "{{baggins_url}}/sessao",
+							"raw": "{{baggins_url}}/session",
 							"host": [
 								"{{baggins_url}}"
 							],
 							"path": [
-								"sessao"
+								"session"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jhoni_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/100517/Downloads/goku.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baggins_url}}/files",
+							"host": [
+								"{{baggins_url}}"
+							],
+							"path": [
+								"files"
 							]
 						}
 					},
